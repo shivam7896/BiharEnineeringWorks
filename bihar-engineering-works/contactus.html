@@ -107,18 +107,13 @@
 
       /* White vignette effect to fade out the grid at the edges */
       .bg-grid::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(
-          ellipse at center,
-          transparent 20%,
-          rgba(255, 255, 255, 0.8) 65%,
-          rgba(255, 255, 255, 1) 100%
-        );
-        z-index: 0;
-      }
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0.9) 100%);
+      z-index: 0;
+    }
 
       /* Brings the Hero content above the vignette shadow */
       .bg-grid > div {
@@ -756,11 +751,11 @@
         <!-- ========================================= -->
         <div class="lg:col-span-5 space-y-6">
             
-            <div class="mb-10">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
-                    Get in <span class="text-brand-blue">Touch</span>
+            <div class="mb-8">
+                <h2 class="text-sm font-bold text-brand-orange uppercase tracking-wider mb-2">
+                    Get in Touch
                 </h2>
-                <p class="text-gray-500 text-[15px] leading-relaxed">
+                <p class="text-gray-600 text-[15px] leading-relaxed">
                     Have a question about our machinery, need a custom quote, or looking for turnkey plant installation? Our team is ready to assist you.
                 </p>
             </div>
@@ -818,54 +813,63 @@
                 <!-- Decorative Blur Element -->
                 <div class="absolute -top-10 -right-10 w-64 h-64 bg-brand-blue/5 rounded-full blur-[80px] pointer-events-none"></div>
                 
-                <h3 class="text-2xl font-extrabold text-gray-900 mb-8 relative z-10">Send us an Enquiry</h3>
+                <h3 class="text-xl font-extrabold text-gray-900 mb-6 relative z-10">Send us an Enquiry</h3>
                 
-                <form class="space-y-6 relative z-10">
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 relative z-10">
+    <input type="hidden" name="access_key" value="05b90fdf-06c2-4209-9196-e4a97af7957d">
+    <input type="hidden" name="subject" value="New Enquiry from Website">
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Product / Service -->
-                        <div class="space-y-2">
-                            <label class="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Product Looking For <span class="text-red-500">*</span></label>
-                            <input type="text" placeholder="e.g. Jaw Crusher" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3.5 text-[15px] text-gray-800 outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 transition-all placeholder:text-gray-400">
+                        <div class="space-y-1.5 relative" id="product_dropdown_container">
+                            <label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Product Looking For <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <input type="hidden" name="Product_Looking_For" id="product_looking_for_input" value="" required>
+                                <input type="text" id="product_search_input" placeholder="Search or select a product..." autocomplete="off" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all cursor-text pr-10">
+                                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none transition-transform duration-200" id="product_dropdown_arrow"></i>
+                                <div id="product_dropdown_list" class="absolute z-[100] w-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 max-h-60 overflow-y-auto hidden opacity-0 transition-opacity duration-200">
+                                    <!-- Items injected by JS -->
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Your Name -->
-                        <div class="space-y-2">
-                            <label class="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Your Name <span class="text-red-500">*</span></label>
-                            <input type="text" placeholder="John Doe" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3.5 text-[15px] text-gray-800 outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 transition-all placeholder:text-gray-400">
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Your Name <span class="text-red-500">*</span></label>
+                            <input name="Name" type="text" placeholder="John Doe" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all placeholder:text-gray-400">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Email -->
-                        <div class="space-y-2">
-                            <label class="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" placeholder="john@company.com" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3.5 text-[15px] text-gray-800 outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 transition-all placeholder:text-gray-400">
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Email Address <span class="text-red-500">*</span></label>
+                            <input name="Email" type="email" placeholder="john@company.com" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all placeholder:text-gray-400">
                         </div>
 
                         <!-- Mobile -->
-                        <div class="space-y-2">
-                            <label class="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Mobile Number <span class="text-red-500">*</span></label>
-                            <div class="flex items-center border border-gray-200 bg-gray-50 rounded-xl overflow-hidden focus-within:border-brand-blue focus-within:ring-4 focus-within:ring-brand-blue/10 transition-all">
-                                <span class="px-4 text-gray-600 font-bold border-r border-gray-200 bg-gray-100/50">+91</span>
-                                <input type="tel" placeholder="98765 43210" required class="flex-1 px-4 py-3.5 text-[15px] text-gray-800 outline-none bg-transparent placeholder:text-gray-400">
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Mobile Number <span class="text-red-500">*</span></label>
+                            <div class="flex items-center border border-gray-200 bg-gray-50 rounded-xl overflow-hidden focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all">
+                                <span class="px-3.5 text-gray-600 font-bold border-r border-gray-200 bg-gray-100/50 text-sm">+91</span>
+                                <input name="Phone" type="tel" placeholder="98765 43210" required class="flex-1 px-4 py-3 text-sm text-gray-800 outline-none bg-transparent placeholder:text-gray-400">
                             </div>
                         </div>
                     </div>
 
                     <!-- Enquiry Details -->
-                    <div class="space-y-2">
-                        <label class="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Enquiry Details <span class="text-red-500">*</span></label>
-                        <textarea rows="4" placeholder="Tell us about your requirements, production capacity, or custom needs..." required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[15px] text-gray-800 outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 transition-all placeholder:text-gray-400 resize-y"></textarea>
+                    <div class="space-y-1.5">
+                        <label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Enquiry Details <span class="text-red-500">*</span></label>
+                        <textarea name="Requirements" rows="3" placeholder="Tell us about your requirements..." required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all placeholder:text-gray-400 resize-y"></textarea>
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
-                        <button type="submit" class="w-full sm:w-auto flex-1 bg-brand-blue text-white rounded-xl py-4 px-8 font-bold text-[15px] shadow-lg shadow-blue-500/30 hover:bg-brand-darkblue transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 group">
+                    <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+                        <button type="submit" class="w-full sm:w-auto flex-1 bg-brand-blue text-white rounded-xl py-3.5 px-6 font-bold text-sm shadow-lg shadow-blue-500/30 hover:bg-brand-darkblue transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group">
                             <span>Submit Enquiry</span>
-                            <i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                            <i class="fa-solid fa-paper-plane text-xs group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                         </button>
-                        <button type="button" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-[15px] text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-800 transition-colors">
+                        <button type="button" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-800 transition-colors">
                             Cancel
                         </button>
                     </div>
@@ -1016,5 +1020,120 @@
         });
     </script>
     <script src="script.js"></script>
-  </body>
+  <!-- Custom Product Dropdown Logic -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const products = [
+      { name: "Ball Mill", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/ball-mill-1755513884-8274111.jpeg?updatedAt=1784813340935" },
+      { name: "Belt Conveyor System", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/belt-conveyor-system-1755514877-8274208.jpeg?updatedAt=1784813345601" },
+      { name: "Bucket Elevator", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/bucket-elevator-1755515107-8274227.jpeg?updatedAt=1784813345238" },
+      { name: "Counter Current Mixer", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/ccim-1752602368-8203941.jpeg" },
+      { name: "Disintegrator Machine", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/disintegrator-machine-1755514031-8274128.jpg?updatedAt=1784813333343" },
+      { name: "Electric Servo Press", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/electric-servo-press-machine-1752602362-8203939.jpeg" },
+      { name: "Electric Winch Machine", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/electric-winch-machine-1755515306-8274242.jpeg?updatedAt=1784813345579" },
+      { name: "Friction Screw Press", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/friction-screw-press-machine-1752602366-8203940.jpeg" },
+      { name: "Grizzly Feeder", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/grizzly-feeder-1755514186-8274154.jpg?updatedAt=1784813345403" },
+      { name: "Hammer Mill", image: "https://ik.imagekit.io/4erfuvr85e/BEW/hammer-mill-1755513740-8274104.webp?updatedAt=1783873550340" },
+      { name: "Hydraulic Press Machine", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/hydraulic-press-machine.jpeg" },
+      { name: "Impact Crushers", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/impact-crushers-1755513631-8274093.jpeg" },
+      { name: "Industrial Vibrating Feeders", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/industrial-vibrating-feeders-1755930012-8203943.jpg" },
+      { name: "Jaw Crusher", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/jaw-crusher-1755513403-8274075.jpeg" },
+      { name: "Manual Hand Molding", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/manual-hand-molding.jpg" },
+      { name: "Muller Mixer", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/muller-mixer-1755514597-8274182.jpeg?updatedAt=1784813343622" },
+      { name: "Pan Mixer Machine", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/pan-mixer-machine-1754454260-8203942.jpeg?updatedAt=1784813341648" },
+      { name: "Rack Pinion Gate", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/rack-amp-pinion-gate-1755514339-8274172.jpg?updatedAt=1784813345480" },
+      { name: "Ribbon Blender Mixer", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/ribbon-blender-mixer-1755514684-8274189.jpeg?updatedAt=1784813342639" },
+      { name: "Rod Gate", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/rod-gate-1755514433-8274177.jpg?updatedAt=1784813345147" },
+      { name: "Roll Crusher", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/roll-crusher-1755513566-8274087.jpeg" },
+      { name: "Roller Conveyor", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/roller-conveyor-1755515206-8274235.jpeg?updatedAt=1784813345581" },
+      { name: "Rotary Screen", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/rotary-screen-1755514115-8274149.jpeg?updatedAt=1784813345553" },
+      { name: "Sheet Bending Machine", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/sheet-bending-machine-1755515361-8274243.jpeg?updatedAt=1784813345574" },
+      { name: "Skid Mounted Crushing Plant", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/skid-mounted-crushing-plant-1755515461-8274253.jpg" },
+      { name: "Steep Angle Conveyor", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Products/steep-angle-conveyor-1755514989-8274217.jpg?updatedAt=1784813345555" },
+      { name: "Stone Crusher Plant", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/mild-steel-stone-crusher-plant-1754454941-8203945.jpeg" },
+      { name: "Vibrating Screening Machine", image: "https://ik.imagekit.io/4erfuvr85e/BEW/Latest%20Products/iron-vibrating-screening-machine-1754454776-8203944.jpeg" },
+      { name: "Other / General Enquiry", image: "assets/BEW Logo.png" }
+    ];
+
+    document.querySelectorAll('#product_dropdown_container').forEach(container => {
+        const searchInput = container.querySelector('#product_search_input');
+        const hiddenInput = container.querySelector('#product_looking_for_input');
+        const dropdownList = container.querySelector('#product_dropdown_list');
+        const arrow = container.querySelector('#product_dropdown_arrow');
+        
+        if (!searchInput) return;
+
+        function renderList(filter = '') {
+            dropdownList.innerHTML = '';
+            const lowerFilter = filter.toLowerCase();
+            let matchCount = 0;
+            
+            products.forEach(p => {
+                if (p.name.toLowerCase().includes(lowerFilter)) {
+                    matchCount++;
+                    const item = document.createElement('div');
+                    item.className = 'p-2 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors rounded-lg mx-1 my-1';
+                    
+                    const img = document.createElement('img');
+                    img.src = p.image;
+                    img.className = 'w-8 h-8 rounded-md object-cover bg-gray-100 border border-gray-200/60';
+                    img.alt = p.name;
+                    
+                    const span = document.createElement('span');
+                    span.className = 'text-sm font-semibold text-gray-800';
+                    span.textContent = p.name;
+                    
+                    item.appendChild(img);
+                    item.appendChild(span);
+                    
+                    item.addEventListener('click', () => {
+                        searchInput.value = p.name;
+                        hiddenInput.value = p.name;
+                        closeDropdown();
+                    });
+                    dropdownList.appendChild(item);
+                }
+            });
+
+            if (matchCount === 0) {
+                dropdownList.innerHTML = `<div class="p-4 text-center text-sm text-gray-500">No products found for "${filter}"</div>`;
+            }
+        }
+
+        function openDropdown() {
+            renderList(searchInput.value === hiddenInput.value ? '' : searchInput.value);
+            dropdownList.classList.remove('hidden');
+            setTimeout(() => dropdownList.classList.remove('opacity-0'), 10);
+            arrow.classList.add('rotate-180');
+        }
+
+        function closeDropdown() {
+            dropdownList.classList.add('opacity-0');
+            arrow.classList.remove('rotate-180');
+            setTimeout(() => dropdownList.classList.add('hidden'), 200);
+            
+            // Ensure a valid selection if they type partial text and click away
+            if (!products.find(p => p.name === searchInput.value)) {
+                searchInput.value = hiddenInput.value;
+            }
+        }
+
+        searchInput.addEventListener('focus', openDropdown);
+        searchInput.addEventListener('click', openDropdown);
+        
+        searchInput.addEventListener('input', (e) => {
+            dropdownList.classList.remove('hidden', 'opacity-0');
+            renderList(e.target.value);
+            hiddenInput.value = ''; // Reset selection until clicked
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!container.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+    });
+});
+</script>
+</body>
 </html>
