@@ -204,38 +204,42 @@ const productCatalog = [
             finalHTML += `
                 <section>
                     <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 border-b border-gray-200 pb-4 mb-10 tracking-tight leading-tight flex items-center gap-4">
-                        <span class="w-2 h-8 bg-brand-orange rounded-full shadow-[0_4px_10px_rgba(255,107,0,0.3)]"></span>
+                        <span class="w-2 h-8 bg-brand-accent rounded-full shadow-[0_4px_10px_rgba(255,107,0,0.3)]"></span>
                         ${category.categoryName}
                     </h2>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             `;
 
             category.products.forEach(product => {
-                // High-End Light Card Design
+                // High-End Light Card Design - 2 Column Layout
                 finalHTML += `
-                    <div onclick="window.location.href='${product.link}'" class="cursor-pointer bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue/50 transition-all duration-300 relative">
+                    <div onclick="window.location.href='${product.link}'" class="cursor-pointer bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col lg:flex-row group hover:shadow-xl hover:border-brand-blue/50 transition-all duration-300 relative">
                         
                         <!-- Image Container -->
-                        <div class="h-48 sm:h-60 md:h-72 bg-gray-50 p-4 relative flex items-center justify-center border-b border-gray-100">
+                        <div class="h-56 lg:h-72 lg:w-1/2 bg-gray-50 p-4 lg:p-6 relative flex items-center justify-center border-b lg:border-b-0 lg:border-r border-gray-100 shrink-0">
                             <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs rounded-full px-3 py-1 flex items-center shadow-xs border border-gray-100 z-10">
-                                <span class="w-1.5 h-1.5 bg-brand-orange rounded-full mr-2"></span>
+                                <span class="w-1.5 h-1.5 bg-brand-accent rounded-full mr-2"></span>
                                 <span class="text-[10px] font-black text-brand-blue tracking-widest">BEW</span>
                             </div>
                             <img src="${product.image}" alt="${product.name}" class="max-w-full max-h-full object-contain group-hover:scale-105 transition duration-500 ease-out">
                         </div>
                         
                         <!-- Text & Button Area -->
-                        <div class="p-4 sm:p-6 flex flex-col flex-grow text-left relative z-10">
-                            <h4 class="text-base font-bold text-gray-900 mb-4 sm:mb-6 leading-snug line-clamp-2">
+                        <div class="p-4 sm:p-6 lg:p-8 flex flex-col flex-grow text-left relative z-10 lg:w-1/2">
+                            <h4 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-snug">
                                 ${product.name}
                             </h4>
                             
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow">
+                                Explore specifications, features, and capabilities of this industrial equipment.
+                            </p>
+                            
                             <!-- Bold Call to Action Button -->
                             <div class="mt-auto">
-                                <a href="${product.link}" class="w-full flex justify-center items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-xs sm:text-sm font-bold text-gray-700 hover:bg-brand-blue hover:!text-white hover:border-brand-blue transition-all duration-300 group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:!text-white shadow-xs">
+                                <a href="${product.link}" class="w-full flex justify-center items-center gap-2 rounded-xl border border-brand-blue bg-brand-blue px-5 py-3 text-sm font-bold text-white hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 shadow-md shadow-blue-500/20">
                                     <span>View Details</span>
-                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    <i class="fa-solid fa-arrow-right text-sm"></i>
                                 </a>
                             </div>
                         </div>

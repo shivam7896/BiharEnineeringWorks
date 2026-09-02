@@ -225,7 +225,7 @@
               <a href="product-detail.html?id=${p.id}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-blue-50/60 transition group">
                 <img src="${p.image}" alt="${p.name}" class="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-lg bg-gray-50 border border-gray-100 shrink-0 mix-blend-multiply" />
                 <div class="flex-grow min-w-0">
-                  <div class="text-[10px] font-black text-brand-orange uppercase tracking-widest mb-0.5">${p.category}</div>
+                  <div class="text-[10px] font-black text-brand-accent uppercase tracking-widest mb-0.5">${p.category}</div>
                   <h4 class="font-extrabold text-sm sm:text-base text-gray-900 truncate group-hover:text-brand-blue transition">${p.name}</h4>
                   <div class="text-xs text-gray-500 font-bold mt-0.5">Starting at <span class="text-brand-blue">${p.price}</span></div>
                 </div>

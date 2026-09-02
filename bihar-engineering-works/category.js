@@ -480,8 +480,8 @@ html += `
             <!-- Header: Title & Price Badge -->
             <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6 lg:mb-8">
                 <div>
-                    <div class="inline-flex items-center text-[10px] font-black tracking-widest uppercase text-brand-orange bg-orange-50 px-3 py-1.5 rounded-full mb-3 border border-orange-100">
-                        <span class="w-1.5 h-1.5 bg-brand-orange rounded-full mr-2"></span> BEW Engineered
+                    <div class="inline-flex items-center text-[10px] font-black tracking-widest uppercase text-brand-accent bg-blue-50 px-3 py-1.5 rounded-full mb-3 border border-blue-100">
+                        <span class="w-1.5 h-1.5 bg-brand-accent rounded-full mr-2"></span> BEW Engineered
                     </div>
                     <a href="${productUrl}" onclick="event.stopPropagation()">
                         <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight tracking-tight hover:text-brand-blue transition">${product.name}</h2>
@@ -518,7 +518,7 @@ html += `
                 <a href="${productUrl}" onclick="event.stopPropagation()" class="w-full sm:w-auto flex-1 bg-brand-blue hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-xs sm:text-[15px]">
                     View Product Details <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
                 </a>
-                <a href="contactus.html" onclick="event.stopPropagation()" class="w-full sm:w-auto bg-white border-2 border-gray-200 hover:border-brand-orange hover:text-brand-orange text-gray-700 font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-[15px]">
+                <a href="contactus.html" onclick="event.stopPropagation()" class="w-full sm:w-auto bg-white border-2 border-gray-200 hover:border-brand-accent hover:text-brand-accent text-gray-700 font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-[15px]">
                     <i class="fa-solid fa-phone-volume"></i> Request Callback
                 </a>
             </div>
